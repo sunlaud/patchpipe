@@ -1,0 +1,39 @@
+//buildscript {
+//    repositories {
+//        mavenCentral()
+//        mavenLocal()
+//    }
+//    dependencies {
+//        classpath 'com.googlecode.d2j:dex-tools:2.1-SNAPSHOT'
+//    }
+//}
+
+
+apply plugin: 'groovy'
+apply plugin: 'io.github.sunlaud.classpatch'
+
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    compile 'org.javassist:javassist:3.20.0-GA'
+    compile 'org.codehaus.groovy:groovy-all:2.4.6'
+    runtime 'org.robolectric:android-all:5.1.1_r9-robolectric-1'
+}
+
+group = 'com.patcher'
+version = '0.0.1'
+
+sourceCompatibility = 1.8
+
+/*
+task patchClasses(dependsOn: [classes, dex2jar], type: JavaExec) {
+    outputs.files("${patchedArtifactsDir}/modified-classes")
+    main = 'Patch'
+    classpath = sourceSets.main.runtimeClasspath + files(originalClassesJar)
+    args "${patchedArtifactsDir}/modified-classes"
+}
+*/

@@ -1,0 +1,25 @@
+plugins {
+    id 'groovy'
+    id 'maven'
+}
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+def androidHome = '/some/where/Android/Sdk/'
+def androidBuidToolsVersion = "23.0.3"
+def androidBuildToolsLibsDir = "${androidHome}/build-tools/${androidBuidToolsVersion}/lib"
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+    compile 'com.googlecode.d2j:dex-tools:2.1-SNAPSHOT'
+    compile files("${androidBuildToolsLibsDir}/dx.jar")
+}
+
+
+sourceCompatibility = 1.8
+
+
+
